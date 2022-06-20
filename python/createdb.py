@@ -39,12 +39,12 @@ class Db:
 
         cursor.execute(f"DROP TABLE IF EXISTS {table_name}")
 
-        number_columns = int(input('Введите число столбцов: '))
+        number_columns = int(input('Columns: '))
 
         table_rows = ''
 
         for i in range(0, number_columns):
-            table_rows += (str(input('Введит строку для создания поля(без запятой): ')))
+            table_rows += (str(input('Create: ')))
             if i < number_columns - 1:
                 table_rows += ','
                 table_rows += '\n'
@@ -76,7 +76,6 @@ class Db:
 
     def insert_data(self, table_name, number_columns, amount_rows):
         for i in range(0, amount_rows):
-            # number_columns = int(input('Введите число столбцов: '))
             conn, cursor = self._connect()
 
             values_table = ""
@@ -104,8 +103,6 @@ class Db:
 
 
 db = Db('postgres', 'postgres', 'password', 'localhost', '5432')
-# db.create_db()
-# db.create_table('database_table')
-db.insert_data('database_table', 4, 3)
+
 
 
